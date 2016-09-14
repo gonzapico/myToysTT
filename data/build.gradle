@@ -24,10 +24,10 @@ dependencies {
 
   def dataDependencies = rootProject.ext.dataDependencies
 
+  provided dataDependencies.javaxAnnotation
   compile dataDependencies.retrofit
   compile dataDependencies.retrofitConverter
   compile dataDependencies.okHttp
   compile dataDependencies.gson
-
 }
 
