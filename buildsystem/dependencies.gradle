@@ -1,0 +1,22 @@
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+ext {
+
+  // Android SDK and tools
+  androidBuildToolsVersion = "24.0.1"
+  androidMinSdkVersion = 19
+  androidTargetSdkVersion = 22
+  androidCompileSdkVersion = 24
+
+  // Libraries app dependencies
+  butterKnifeVersion = '8.2.1'
+
+  presentationDependencies =
+      [
+       butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
+       butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"]
+}
