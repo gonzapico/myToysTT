@@ -19,16 +19,18 @@ ext {
   retrofitVersion = '2.1.0'
   javaxAnnotationVersion = '1.0'
   daggerVersion = '2.0.2'
+  loggingInterceptorVersion = '3.3.1'
 
 
   presentationDependencies = [butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
                               butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"]
 
-  dataDependencies = [retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-                      retrofitConverter : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-                      okHttp            : "com.squareup.okhttp:okhttp:${okHttpVersion}",
-                      gson              : "com.google.code.gson:gson:${gsonVersion}",
-                      javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-                      daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
-                      dagger             : "com.google.dagger:dagger:${daggerVersion}"]
+  dataDependencies = [retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+                      retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+                      okHttp           : "com.squareup.okhttp:okhttp:${okHttpVersion}",
+                      gson             : "com.google.code.gson:gson:${gsonVersion}",
+                      javaxAnnotation  : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                      daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                      dagger           : "com.google.dagger:dagger:${daggerVersion}",
+                      okHttpLogging    : "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"]
 }
