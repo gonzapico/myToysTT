@@ -24,10 +24,12 @@ dependencies {
 
   def dataDependencies = rootProject.ext.dataDependencies
 
+  apt dataDependencies.daggerCompiler
   provided dataDependencies.javaxAnnotation
   compile dataDependencies.retrofit
   compile dataDependencies.retrofitConverter
   compile dataDependencies.okHttp
   compile dataDependencies.gson
+  compile dataDependencies.dagger
 }
 

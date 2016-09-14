@@ -18,6 +18,7 @@ ext {
   okHttpVersion = '2.5.0'
   retrofitVersion = '2.1.0'
   javaxAnnotationVersion = '1.0'
+  daggerVersion = '2.0.2'
 
 
   presentationDependencies = [butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
@@ -27,5 +28,7 @@ ext {
                       retrofitConverter : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
                       okHttp            : "com.squareup.okhttp:okhttp:${okHttpVersion}",
                       gson              : "com.google.code.gson:gson:${gsonVersion}",
-                      javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",]
+                      javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                      daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                      dagger             : "com.google.dagger:dagger:${daggerVersion}"]
 }
