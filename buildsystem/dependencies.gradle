@@ -14,9 +14,16 @@ ext {
 
   // Libraries app dependencies
   butterKnifeVersion = '8.2.1'
+  gsonVersion = '2.3'
+  okHttpVersion = '2.5.0'
+  retrofitVersion = '2.1.0'
 
-  presentationDependencies =
-      [
-       butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
-       butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"]
+
+  presentationDependencies = [butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
+                              butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"]
+
+  dataDependencies = [retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+                      retrofitConverter : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+                      okHttp            : "com.squareup.okhttp:okhttp:${okHttpVersion}",
+                      gson              : "com.google.code.gson:gson:${gsonVersion}"]
 }
