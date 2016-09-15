@@ -21,6 +21,7 @@ ext {
   daggerVersion = '2.0.2'
   loggingInterceptorVersion = '3.3.1'
   rxJavaVersion = '1.0.14'
+  javaxGlassfish = '10.0-b28'
 
   // Testing
   robolectricVersion = '3.1.2'
@@ -30,7 +31,11 @@ ext {
 
 
   presentationDependencies = [butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
-                              butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"]
+                              butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+                              daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                              dagger             : "com.google.dagger:dagger:${daggerVersion}",
+                              javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                              javaxGlassfish     : "org.glassfish:javax.annotation:${javaxGlassfish}"]
 
   dataDependencies = [retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
                       retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
