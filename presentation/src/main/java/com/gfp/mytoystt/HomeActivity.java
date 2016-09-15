@@ -15,7 +15,6 @@ public class HomeActivity extends BaseMTActivity
     implements com.gfp.mytoystt.loadNavigation.NavigationView, HasComponent<NavigationComponent> {
 
   @Inject NavigationPresenter mNavigationPresenter;
-  @BindView(R.id.llNavigation) LinearLayout llNavigation;
   private NavigationComponent mNavigationComponent;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
