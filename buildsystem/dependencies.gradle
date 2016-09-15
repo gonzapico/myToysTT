@@ -22,6 +22,7 @@ ext {
   loggingInterceptorVersion = '3.3.1'
   rxJavaVersion = '1.0.14'
   javaxGlassfish = '10.0-b28'
+  rxAndroidVersion = '1.0.1'
 
   // Testing
   robolectricVersion = '3.1.2'
@@ -35,6 +36,7 @@ ext {
                               daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
                               dagger             : "com.google.dagger:dagger:${daggerVersion}",
                               javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                              rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
                               javaxGlassfish     : "org.glassfish:javax.annotation:${javaxGlassfish}"]
 
   dataDependencies = [retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
