@@ -3,12 +3,14 @@ buildscript {
     mavenCentral()
   }
   dependencies {
+    classpath 'me.tatarka:gradle-retrolambda:3.2.3'
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
   }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -16,7 +18,13 @@ android {
   defaultConfig {
     minSdkVersion rootProject.ext.androidMinSdkVersion
   }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
+
 
 dependencies {
 
@@ -32,6 +40,8 @@ dependencies {
   compile dataDependencies.gson
   compile dataDependencies.dagger
   compile dataDependencies.okHttpLogging
+  compile dataDependencies.rxJava
+  compile dataDependencies.retrofitAdapterRx
 
   def testDependencies = rootProject.ext.dataTestDependencies
 
