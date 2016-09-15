@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import com.domain.gfp.interactor.BaseUseCase;
 import com.domain.gfp.interactor.DefaultSubscriber;
 import com.domain.gfp.model.NavigationEntriesModelDomain;
+import com.gfp.mytoystt.OnListFragmentInteractionListener;
 import com.gfp.mytoystt.di.PerActivity;
 import com.gfp.mytoystt.loadNavigation.mapper.DomainNavigationEntriesMapper;
 import javax.inject.Inject;
@@ -12,7 +13,9 @@ import javax.inject.Named;
 /**
  * Created by gfernandez on 15/09/16.
  */
-@PerActivity public class NavigationPresenter {
+@PerActivity public class NavigationPresenter implements OnListFragmentInteractionListener {
+  public static final String SECTION = "section";
+  public static final String NODO = "node";
   private NavigationView mNavigationView;
   private DomainNavigationEntriesMapper mNavigationMapper;
 
@@ -40,6 +43,23 @@ import javax.inject.Named;
     final NavigationEntriesModel listOfNavigationEntries =
         this.mNavigationMapper.transform(navigationEntriesModelDomain);
     this.mNavigationView.loadNavigationDrawer(listOfNavigationEntries);
+  }
+
+  @Override public void onListFragmentInteraction(NavigationEntryModel mItem) {
+    navigateTo(mItem);
+  }
+
+  private void navigateTo(NavigationEntryModel navigationEntryModel) {
+    if ((navigationEntryModel.getType().contains(SECTION)) || (navigationEntryModel.getType()
+        .contains(NODO))) {
+      this.mNavigationView.navigateToDeepLevel(navigationEntryModel);
+      this.mNavigationView.changeNavigationHeader(navigationEntryModel.getLabel());
+      this.mNavigationView.showBackArrow();
+    } else {
+      this.mNavigationView.loadUrl(navigationEntryModel.getUrl());
+      this.mNavigationView.closeNavigator();
+      this.mNavigationView.restartMenu();
+    }
   }
 
   private final class NavigationSuscriber extends DefaultSubscriber<NavigationEntriesModelDomain> {
