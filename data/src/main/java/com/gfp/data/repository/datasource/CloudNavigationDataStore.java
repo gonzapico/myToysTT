@@ -1,13 +1,14 @@
 package com.gfp.data.repository.datasource;
 
 import android.content.Context;
-import com.gfp.data.MyToysAPIService;
+import com.gfp.data.cloud.MyToysAPIService;
 import com.gfp.data.di.CloudModule;
 import com.gfp.data.di.DaggerCloudComponent;
 import com.gfp.data.entity.NavigationEntries;
 import javax.inject.Inject;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import rx.Observable;
 
 /**
  * Created by gfernandez on 16/08/16.
@@ -39,7 +40,7 @@ public class CloudNavigationDataStore implements NavigationDataStore {
         .inject(this);
   }
 
-  @Override public Call<NavigationEntries> navigationList() {
+  @Override public Observable<NavigationEntries> navigationList() {
     return restApi.navigation();
   }
 }

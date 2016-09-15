@@ -2,6 +2,7 @@ package com.gfp.data.repository.datasource;
 
 import com.gfp.data.entity.NavigationEntries;
 import retrofit2.Call;
+import rx.Observable;
 
 /**
  * Created by gfernandez on 16/08/16.
@@ -13,5 +14,5 @@ public interface NavigationDataStore {
    *
    * @return a list of {@link NavigationEntries}
    */
-  Call<NavigationEntries> navigationList();
+  Observable<NavigationEntries> navigationList();
 }
