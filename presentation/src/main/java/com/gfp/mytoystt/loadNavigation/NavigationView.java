@@ -7,4 +7,20 @@ package com.gfp.mytoystt.loadNavigation;
 public interface NavigationView {
 
   void loadNavigationDrawer(NavigationEntriesModel listOfEntries);
+
+  void closeNavigator();
+
+  void loadUrl(String url);
+
+  void navigateToDeepLevel(NavigationEntryModel navigationEntryModel);
+
+  void navigateToHighLevel();
+
+  void changeNavigationHeader(String header);
+
+  void showBackArrow();
+
+  void hideBackArrow();
+
+  void restartMenu();
 }
