@@ -1,7 +1,7 @@
 package com.gfp.data.di;
 
 import android.content.Context;
-import com.gfp.data.MyToysAPIService;
+import com.gfp.data.cloud.MyToysAPIService;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,6 +12,7 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -40,6 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
         new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(mBaseUrl)
             .client(okHttpBuilder.build())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .build();
 
     retrofit.create(MyToysAPIService.class);
