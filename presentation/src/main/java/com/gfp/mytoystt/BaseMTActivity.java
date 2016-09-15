@@ -4,6 +4,8 @@ package com.gfp.mytoystt;
  * Created by gfernandez on 14/09/16.
  */
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -94,12 +96,6 @@ public abstract class BaseMTActivity extends AppCompatActivity
     }
   }
 
-  private void closeNavigation(){
-    if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-      mDrawerLayout.closeDrawer(GravityCompat.START);
-    }
-  }
-
   /**
    * Get the Main Application component for dependency injection.
    *
@@ -118,5 +114,34 @@ public abstract class BaseMTActivity extends AppCompatActivity
     return new ActivityModule(this);
   }
 
+  /**
+   * Adds a {@link Fragment} to this activity's layout.
+   *
+   * @param containerViewId The container view to where add the fragment.
+   * @param fragment The fragment to be added.
+   */
+  protected void addFragment(int containerViewId, Fragment fragment) {
+    FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
+    fragmentTransaction.add(containerViewId, fragment);
+    fragmentTransaction.commit();
+  }
+
+  protected void replaceFragment(int containerViewId, Fragment fragment) {
+    FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
+    fragmentTransaction.replace(containerViewId, fragment);
+    fragmentTransaction.addToBackStack(null);
+    fragmentTransaction.commit();
+  }
+
+  protected void popBackStack(){
+    // go back to something that was added to the backstack
+    getFragmentManager().popBackStack();
+  }
+
+  protected void removeAllFragments(){
+    for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
+      popBackStack();
+    }
+  }
 }
 
