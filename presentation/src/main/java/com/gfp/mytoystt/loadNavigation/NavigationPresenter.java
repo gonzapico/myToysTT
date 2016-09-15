@@ -1,37 +1,57 @@
 package com.gfp.mytoystt.loadNavigation;
 
+import android.support.annotation.NonNull;
+import com.domain.gfp.interactor.BaseUseCase;
 import com.domain.gfp.interactor.DefaultSubscriber;
-import com.domain.gfp.interactor.GetNavigation;
+import com.domain.gfp.model.NavigationEntriesModelDomain;
+import com.gfp.mytoystt.di.PerActivity;
+import com.gfp.mytoystt.loadNavigation.mapper.DomainNavigationEntriesMapper;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * Created by gfernandez on 15/09/16.
  */
-
-public class NavigationPresenter {
+@PerActivity public class NavigationPresenter {
   private NavigationView mNavigationView;
-  private GetNavigation mGetNavigation;
+  private DomainNavigationEntriesMapper mNavigationMapper;
 
-  NavigationPresenter() {
+  private BaseUseCase mGetNavigationUseCase;
 
-  }
-
-  NavigationPresenter(NavigationView navigationView) {
-    this.mNavigationView = navigationView;
+  @Inject public NavigationPresenter(@Named("getNavigation") BaseUseCase useCase,
+      DomainNavigationEntriesMapper navigationEntityDataMapper) {
+    this.mGetNavigationUseCase = useCase;
+    this.mNavigationMapper = navigationEntityDataMapper;
   }
 
   public NavigationView getmNavigationView() {
     return mNavigationView;
   }
 
-  public void setmNavigationView(NavigationView mNavigationView) {
+  public void setmNavigationView(@NonNull NavigationView mNavigationView) {
     this.mNavigationView = mNavigationView;
   }
 
-  public void getNavigationItems(){
-    mGetNavigation.execute(new NavigationSuscriber());
+  public void getNavigationItems() {
+    mGetNavigationUseCase.execute(new NavigationSuscriber());
   }
 
-  private final class NavigationSuscriber extends DefaultSubscriber<NavigationEntriesModel>{
-    
+  private void showItemsOnNavigatorView(NavigationEntriesModelDomain navigationEntriesModelDomain) {
+    final NavigationEntriesModel listOfNavigationEntries =
+        this.mNavigationMapper.transform(navigationEntriesModelDomain);
+    this.mNavigationView.loadNavigationDrawer(listOfNavigationEntries);
+  }
+
+  private final class NavigationSuscriber extends DefaultSubscriber<NavigationEntriesModelDomain> {
+    @Override public void onCompleted() {
+
+    }
+
+    @Override public void onError(Throwable e) {
+    }
+
+    @Override public void onNext(NavigationEntriesModelDomain navigationEntriesModelDomain) {
+      NavigationPresenter.this.showItemsOnNavigatorView(navigationEntriesModelDomain);
+    }
   }
 }
