@@ -18,6 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Optional;
+import com.gfp.mytoystt.di.components.ApplicationComponent;
+import com.gfp.mytoystt.di.modules.ActivityModule;
 
 /***
  * Base Activity from where other Activities will extend
@@ -97,5 +99,24 @@ public abstract class BaseMTActivity extends AppCompatActivity
       mDrawerLayout.closeDrawer(GravityCompat.START);
     }
   }
+
+  /**
+   * Get the Main Application component for dependency injection.
+   *
+   * @return {@link ApplicationComponent}
+   */
+  protected ApplicationComponent getApplicationComponent() {
+    return ((BaseMTApplication) getApplication()).getApplicationComponent();
+  }
+
+  /**
+   * Get an Activity module for dependency injection.
+   *
+   * @return {@link ActivityModule}
+   */
+  protected ActivityModule getActivityModule() {
+    return new ActivityModule(this);
+  }
+
 }
 

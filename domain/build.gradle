@@ -1,8 +1,24 @@
 apply plugin: 'java'
 
-dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+configurations {
+  provided
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+
+  def domainDependencies = rootProject.ext.domainDependencies
+
+  compile domainDependencies.dagger
+  provided domainDependencies.daggerCompiler
+  provided domainDependencies.javaxAnnotation
+  compile domainDependencies.rxJava
+}
