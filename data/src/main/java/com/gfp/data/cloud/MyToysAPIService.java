@@ -1,5 +1,6 @@
-package com.gfp.data;
+package com.gfp.data.cloud;
 
+import com.gfp.data.Config;
 import com.gfp.data.entity.NavigationEntries;
 import retrofit2.Call;
 import retrofit2.http.GET;

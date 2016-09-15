@@ -20,6 +20,7 @@ ext {
   javaxAnnotationVersion = '1.0'
   daggerVersion = '2.0.2'
   loggingInterceptorVersion = '3.3.1'
+  rxJavaVersion = '1.0.14'
 
   // Testing
   robolectricVersion = '3.1.2'
@@ -38,10 +39,17 @@ ext {
                       javaxAnnotation  : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
                       daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
                       dagger           : "com.google.dagger:dagger:${daggerVersion}",
+                      rxJava            : "io.reactivex:rxjava:${rxJavaVersion}",
+                      retrofitAdapterRx : "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
                       okHttpLogging    : "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}"]
 
   dataTestDependencies = [junit      : "junit:junit:${jUnitVersion}",
                           assertj    : "org.assertj:assertj-core:${assertJVersion}",
                           mockito    : "org.mockito:mockito-core:${mockitoVersion}",
-                          robolectric: "org.robolectric:robolectric:${robolectricVersion}",]
+                          robolectric: "org.robolectric:robolectric:${robolectricVersion}"]
+
+  domainDependencies = [daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                        dagger         : "com.google.dagger:dagger:${daggerVersion}",
+                        javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+                        rxJava         : "io.reactivex:rxjava:${rxJavaVersion}"]
 }
