@@ -30,6 +30,15 @@ ext {
   assertJVersion = '1.7.1'
   mockitoVersion = '1.10.19'
 
+  // Testing
+  robolectricVersion = '3.1.2'
+  jUnitVersion = '4.12'
+  assertJVersion = '1.7.1'
+  mockitoVersion = '1.10.19'
+  dexmakerVersion = '1.0'
+  espressoVersion = '2.2.2'
+  testingSupportLibVersion = '0.1'
+
 
   presentationDependencies = [butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
                               butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
@@ -38,6 +47,14 @@ ext {
                               javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
                               rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
                               javaxGlassfish     : "org.glassfish:javax.annotation:${javaxGlassfish}"]
+
+  presentationTestDependencies = [junit            : "junit:junit:${jUnitVersion}",
+                                  mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+                                  dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+                                  dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+                                  espresso         : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+                                  testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}"]
+
 
   dataDependencies = [retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
                       retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
