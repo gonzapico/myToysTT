@@ -11,7 +11,8 @@ public class NavigationEntryModelDomain {
 
   private String type = "";
   private String label = "";
-  private List<ChildModelDomain> children = new ArrayList<>();
+  private String url = "";
+  private List<NavigationEntryModelDomain> children = new ArrayList<>();
 
   public String getType() {
     return type;
@@ -29,11 +30,19 @@ public class NavigationEntryModelDomain {
     this.label = label;
   }
 
-  public List<ChildModelDomain> getChildren() {
+  public List<NavigationEntryModelDomain> getChildren() {
     return children;
   }
 
-  public void setChildren(List<ChildModelDomain> children) {
+  public void setChildren(List<NavigationEntryModelDomain> children) {
     this.children = children;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 }

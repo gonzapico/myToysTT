@@ -10,7 +10,8 @@ import javax.annotation.Generated;
 
   @SerializedName("type") @Expose private String type;
   @SerializedName("label") @Expose private String label;
-  @SerializedName("children") @Expose private List<Child> children = new ArrayList<Child>();
+  @SerializedName("url") @Expose private String url;
+  @SerializedName("children") @Expose private List<NavigationEntry> children = new ArrayList<NavigationEntry>();
 
   /**
    * @return The type
@@ -43,14 +44,22 @@ import javax.annotation.Generated;
   /**
    * @return The children
    */
-  public List<Child> getChildren() {
+  public List<NavigationEntry> getChildren() {
     return children;
   }
 
   /**
    * @param children The children
    */
-  public void setChildren(List<Child> children) {
+  public void setChildren(List<NavigationEntry> children) {
     this.children = children;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 }

@@ -36,20 +36,22 @@ import javax.inject.Singleton;
       navigationEntryModelDomain.setChildren(transformListOfChild(navigationEntry.getChildren()));
       navigationEntryModelDomain.setLabel(navigationEntry.getLabel());
       navigationEntryModelDomain.setType(navigationEntry.getType());
+      navigationEntryModelDomain.setUrl(navigationEntry.getUrl());
       transformation.add(navigationEntryModelDomain);
     }
 
     return transformation;
   }
 
-  private List<ChildModelDomain> transformListOfChild(List<Child> children) {
-    List<ChildModelDomain> transformation = new ArrayList<>();
-    for (Child child : children){
-      ChildModelDomain childModelDomain = new ChildModelDomain();
+  private List<NavigationEntryModelDomain> transformListOfChild(List<NavigationEntry> children) {
+    List<NavigationEntryModelDomain> transformation = new ArrayList<>();
+    for (NavigationEntry child : children){
+      NavigationEntryModelDomain childModelDomain = new NavigationEntryModelDomain();
 
       childModelDomain.setType(child.getType());
       childModelDomain.setLabel(child.getLabel());
       childModelDomain.setUrl(child.getUrl());
+      childModelDomain.setChildren(transformListOfChild(child.getChildren()));
 
       transformation.add(childModelDomain);
     }

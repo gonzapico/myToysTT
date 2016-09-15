@@ -1,7 +1,6 @@
 package com.gfp.data.repository.datasource;
 
 import com.gfp.data.entity.NavigationEntries;
-import retrofit2.Call;
 import rx.Observable;
 
 /**
