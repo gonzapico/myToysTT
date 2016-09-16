@@ -50,8 +50,7 @@ import javax.inject.Named;
   }
 
   private void navigateTo(NavigationEntryModel navigationEntryModel) {
-    if ((navigationEntryModel.getType().contains(SECTION)) || (navigationEntryModel.getType()
-        .contains(NODO))) {
+    if ((navigationEntryModel.getType().contains(NODO))) {
       this.mNavigationView.navigateToDeepLevel(navigationEntryModel);
       this.mNavigationView.changeNavigationHeader(navigationEntryModel.getLabel());
       this.mNavigationView.showBackArrow();

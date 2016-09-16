@@ -23,4 +23,8 @@ public interface NavigationView {
   void hideBackArrow();
 
   void restartMenu();
+
+  void showLogo();
+
+  void hideLogo();
 }
