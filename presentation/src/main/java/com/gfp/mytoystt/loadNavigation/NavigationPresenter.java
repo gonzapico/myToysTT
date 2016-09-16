@@ -6,6 +6,8 @@ import com.domain.gfp.interactor.DefaultSubscriber;
 import com.domain.gfp.model.NavigationEntriesModelDomain;
 import com.gfp.mytoystt.OnListFragmentInteractionListener;
 import com.gfp.mytoystt.di.PerActivity;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntriesModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntryModel;
 import com.gfp.mytoystt.loadNavigation.mapper.DomainNavigationEntriesMapper;
 import javax.inject.Inject;
 import javax.inject.Named;

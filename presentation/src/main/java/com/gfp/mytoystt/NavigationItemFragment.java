@@ -8,7 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.gfp.mytoystt.loadNavigation.NavigationEntryModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntryModel;
+import com.gfp.mytoystt.loadNavigation.adapter.NavigationItemRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.gfp.mytoystt.loadNavigation.mapper;
 
 import com.domain.gfp.model.NavigationEntriesModelDomain;
 import com.domain.gfp.model.NavigationEntryModelDomain;
-import com.gfp.mytoystt.loadNavigation.NavigationEntriesModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntriesModel;
 import java.util.ArrayList;
 import java.util.List;
 import junit.framework.TestCase;

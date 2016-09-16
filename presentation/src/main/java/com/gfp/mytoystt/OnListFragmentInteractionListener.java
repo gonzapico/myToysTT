@@ -1,7 +1,6 @@
 package com.gfp.mytoystt;
 
-import android.util.Log;
-import com.gfp.mytoystt.loadNavigation.NavigationEntryModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntryModel;
 
 /**
  * This interface must be implemented by activities that contain this

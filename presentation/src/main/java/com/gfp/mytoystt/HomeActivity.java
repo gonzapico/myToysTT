@@ -1,7 +1,6 @@
 package com.gfp.mytoystt;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,8 +10,8 @@ import butterknife.BindView;
 import com.gfp.mytoystt.di.HasComponent;
 import com.gfp.mytoystt.di.components.DaggerNavigationComponent;
 import com.gfp.mytoystt.di.components.NavigationComponent;
-import com.gfp.mytoystt.loadNavigation.NavigationEntriesModel;
-import com.gfp.mytoystt.loadNavigation.NavigationEntryModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntriesModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntryModel;
 import com.gfp.mytoystt.loadNavigation.NavigationPresenter;
 import java.util.ArrayList;
 import java.util.List;

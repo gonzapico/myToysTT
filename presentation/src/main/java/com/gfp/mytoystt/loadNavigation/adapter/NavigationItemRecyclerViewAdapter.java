@@ -1,4 +1,4 @@
-package com.gfp.mytoystt;
+package com.gfp.mytoystt.loadNavigation.adapter;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.gfp.mytoystt.OnListFragmentInteractionListener;
+import com.gfp.mytoystt.R;
 import com.gfp.mytoystt.dummy.DummyContent.DummyItem;
-import com.gfp.mytoystt.loadNavigation.NavigationEntryModel;
+import com.gfp.mytoystt.loadNavigation.entities.NavigationEntryModel;
 import java.util.List;
 
 /**

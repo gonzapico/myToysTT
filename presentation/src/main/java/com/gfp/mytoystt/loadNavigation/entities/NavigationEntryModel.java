@@ -1,4 +1,4 @@
-package com.gfp.mytoystt.loadNavigation;
+package com.gfp.mytoystt.loadNavigation.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
