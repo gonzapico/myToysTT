@@ -1,9 +1,11 @@
 package com.gfp.mytoystt;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.gfp.mytoystt.dummy.DummyContent.DummyItem;
 import com.gfp.mytoystt.loadNavigation.NavigationEntryModel;
@@ -35,7 +37,11 @@ public class NavigationItemRecyclerViewAdapter
   @Override public void onBindViewHolder(final ViewHolder holder, int position) {
     holder.mItem = mValues.get(position);
     holder.mIdView.setText(mValues.get(position).getLabel());
-
+    if (!mValues.get(position).getType().equals("node")) holder.mNextLevel.setVisibility(View.GONE);
+    if (mValues.get(position).getType().equals("section")) {
+      holder.mView.setBackgroundColor(Color.parseColor("#d3d3d3"));
+      holder.mIdView.setAllCaps(true);
+    }
     holder.mView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (null != mListener) {
@@ -54,18 +60,18 @@ public class NavigationItemRecyclerViewAdapter
   public class ViewHolder extends RecyclerView.ViewHolder {
     public final View mView;
     public final TextView mIdView;
-    public final TextView mContentView;
+    public final ImageView mNextLevel;
     public NavigationEntryModel mItem;
 
     public ViewHolder(View view) {
       super(view);
       mView = view;
       mIdView = (TextView) view.findViewById(R.id.id);
-      mContentView = (TextView) view.findViewById(R.id.content);
+      mNextLevel = (ImageView) view.findViewById(R.id.ivArrowNextLevel);
     }
 
     @Override public String toString() {
-      return super.toString() + " '" + mContentView.getText() + "'";
+      return super.toString() + " '" + mIdView.getText() + "'";
     }
   }
 }
