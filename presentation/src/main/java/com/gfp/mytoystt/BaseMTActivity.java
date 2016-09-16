@@ -32,7 +32,6 @@ public abstract class BaseMTActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
   @BindView(R.id.toolbar) Toolbar mToolbar;
-  @BindView(R.id.fab) FloatingActionButton mFab;
   @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
   @BindView(R.id.nav_view) NavigationView mNavigationView;
 
