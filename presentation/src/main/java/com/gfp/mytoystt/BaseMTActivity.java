@@ -5,6 +5,7 @@ package com.gfp.mytoystt;
  */
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,7 +34,8 @@ public abstract class BaseMTActivity extends AppCompatActivity
   @BindView(R.id.fab) FloatingActionButton mFab;
   @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
   @BindView(R.id.nav_view) NavigationView mNavigationView;
-  @Optional @OnClick(R.id.ivClose) void closeDrawer(){
+
+  @Optional @OnClick(R.id.ivClose) void closeDrawer() {
     if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
       mDrawerLayout.closeDrawer(GravityCompat.START);
     }
@@ -128,18 +130,32 @@ public abstract class BaseMTActivity extends AppCompatActivity
 
   protected void replaceFragment(int containerViewId, Fragment fragment) {
     FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
+    fragmentTransaction.setCustomAnimations(R.animator.fragment_slide_in_left,
+        R.animator.fragment_slide_out_right, R.animator.fragment_slide_in_left,
+        R.animator.fragment_slide_out_right);
     fragmentTransaction.replace(containerViewId, fragment);
     fragmentTransaction.addToBackStack(null);
+
     fragmentTransaction.commit();
   }
 
-  protected void popBackStack(){
+  protected void popBackStack() {
     // go back to something that was added to the backstack
     getFragmentManager().popBackStack();
   }
 
-  protected void removeAllFragments(){
-    for(int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
+  protected String getLatestFragment() {
+    int index = getFragmentManager().getBackStackEntryCount() - 1;
+    FragmentManager.BackStackEntry backEntry = getFragmentManager().getBackStackEntryAt(index);
+    return backEntry.getName();
+  }
+
+  protected boolean shouldShowLogo() {
+    return (getFragmentManager().getBackStackEntryCount() == 1);
+  }
+
+  protected void removeAllFragments() {
+    for (int i = 0; i < getFragmentManager().getBackStackEntryCount(); ++i) {
       popBackStack();
     }
   }
