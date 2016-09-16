@@ -19,7 +19,7 @@ allprojects {
     androidVersionCode = 2
     androidVersionName = "0.2"
 
-    testApplicationId = 'com.elconfidencial.app.test'
+    testApplicationId = 'com.gfp.mytoys.test'
   }
 
 }
