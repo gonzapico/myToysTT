@@ -15,11 +15,11 @@ task wrapper(type: Wrapper) {
 
 allprojects {
   ext {
-    androidApplicationId = 'com.elconfidencial.app'
+    androidApplicationId = 'com.gfp.mytoys'
     androidVersionCode = 2
     androidVersionName = "0.2"
 
-    testApplicationId = 'com.elconfidencial.app.test'
+    testApplicationId = 'com.gfp.mytoys.test'
   }
 
 }
