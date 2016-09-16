@@ -16,6 +16,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -128,26 +129,35 @@ public abstract class BaseMTActivity extends AppCompatActivity
     fragmentTransaction.commit();
   }
 
-  protected void replaceFragment(int containerViewId, Fragment fragment) {
+  protected void replaceFragment(int containerViewId, Fragment fragment, String tag) {
     FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
     fragmentTransaction.setCustomAnimations(R.animator.fragment_slide_in_left,
         R.animator.fragment_slide_out_right, R.animator.fragment_slide_in_left,
         R.animator.fragment_slide_out_right);
     fragmentTransaction.replace(containerViewId, fragment);
-    fragmentTransaction.addToBackStack(null);
+    fragmentTransaction.addToBackStack(tag);
 
     fragmentTransaction.commit();
   }
 
-  protected void popBackStack() {
+  protected String popBackStack() {
+    String latestFragment = getLatestFragment();
+    Log.d(String.valueOf(this), "XX " + latestFragment);
     // go back to something that was added to the backstack
     getFragmentManager().popBackStack();
+
+    return latestFragment;
   }
 
   protected String getLatestFragment() {
-    int index = getFragmentManager().getBackStackEntryCount() - 1;
-    FragmentManager.BackStackEntry backEntry = getFragmentManager().getBackStackEntryAt(index);
-    return backEntry.getName();
+    try {
+      int index = getFragmentManager().getBackStackEntryCount() - 2;
+      FragmentManager.BackStackEntry backEntry = getFragmentManager().getBackStackEntryAt(index);
+      return backEntry.getName();
+    }
+    catch (Exception e){
+      return "";
+    }
   }
 
   protected boolean shouldShowLogo() {
