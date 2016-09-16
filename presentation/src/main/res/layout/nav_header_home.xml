@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="horizontal"
@@ -18,7 +19,15 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginRight="20dp"
-      android:src="@android:drawable/arrow_down_float"
+      android:src="@mipmap/ic_action_back"
+      />
+
+  <ImageView
+      android:id="@+id/ivLogo"
+      android:visibility="gone"
+      android:src="@mipmap/ic_launcher"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       />
 
   <TextView
@@ -26,7 +35,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginRight="20dp"
-      android:text="myToys"
+      tools:text="myToys"
+      android:text=""
       />
 
   <ImageView
