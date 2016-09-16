@@ -89,11 +89,11 @@ public class HomeActivity extends BaseMTActivity
     NavigationItemFragment navigationItemFragment =
         NavigationItemFragment.newInstance(1, navigationEntryModel.getChildren());
     navigationItemFragment.setOnRowListener(mNavigationPresenter);
-    replaceFragment(R.id.fragmentContainer, navigationItemFragment);
+    replaceFragment(R.id.fragmentContainer, navigationItemFragment, navigationEntryModel.getLabel());
   }
 
   @Override public void navigateToHighLevel() {
-    popBackStack();
+    changeNavigationHeader(popBackStack());
   }
 
   @Override public void changeNavigationHeader(String header) {
@@ -104,8 +104,8 @@ public class HomeActivity extends BaseMTActivity
   @Override public void showBackArrow() {
     ((ImageView)findViewById(R.id.ivNavHeaderBack)).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        changeNavigationHeader(((TextView)findViewById(R.id.tvNavHeader)).getText().toString());
-        popBackStack();
+        //changeNavigationHeader(((TextView)findViewById(R.id.tvNavHeader)).getText().toString());
+        changeNavigationHeader(popBackStack());
         if (shouldShowLogo()) {
           setUpInitStateOfMenu();
         }
